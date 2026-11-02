@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Idia Team — реклама, боты и сайты под заявки</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Idia Team — реклама, которая приносит заявки">
+<meta property="og:description" content="Яндекс Директ, VK Реклама, чат-боты и сайты на Тильде. Бесплатный экспресс-разбор вашей рекламы.">
+<meta property="og:image" content="og-cover.png">
+<meta name="theme-color" content="#0b0b10">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="Реклама в Яндекс Директ и VK, чат-боты и сайты на Тильде — чтобы шли заявки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* Фирменный стиль Idia Team: тёмный фон, лайм — главный акцент, фиолетовый и розовый — вторичные.
+   Сетка: одна колонка до 1080px, карточки цен и кейсов — авто-сетка, на телефоне в столбик. */
+:root {
+  --bg: #0b0b10;
+  --panel: #16151d;
+  --panel-soft: #131219;
+  --text: #f5f3f7;
+  --muted: #a7a3b3;
+  --faint: #6f6c7c;
+  --line: rgba(255,255,255,.09);
+  --line-strong: rgba(255,255,255,.16);
+  --lime: #c8ff4d;
+  --on-lime: #0b0b10;
+  --violet: #9a90ff;
+  --pink: #ff5fa6;
+  --font-display: "Unbounded", "Manrope", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-lg: 28px;
+  --r-md: 18px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(32px, 6vw, 60px); letter-spacing: -.02em; }
+h2 { font-size: clamp(26px, 4vw, 40px); letter-spacing: -.01em; }
+h3 { font-size: 19px; font-weight: 500; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+.muted { color: var(--muted); }
+.eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--lime);
+}
+section { padding-block: clamp(56px, 9vw, 96px); border-top: 1px solid var(--line); }
+.head { display: grid; gap: 14px; max-width: 680px; margin-bottom: 36px; }
+
+/* Шапка */
+.top { padding-block: 22px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo i { width: 12px; height: 12px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 18px var(--lime); }
+.top nav { display: flex; gap: 22px; font-size: 15px; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--text); }
+@media (max-width: 720px) { .top nav { display: none; } }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 16px;
+  text-decoration: none; border: 1px solid var(--line-strong); transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-lime { background: var(--lime); color: var(--on-lime); border-color: var(--lime); }
+.btn-ghost { background: transparent; color: var(--text); }
+.btn-ghost:hover { background: var(--panel); }
+.top .btn { padding: 10px 18px; font-size: 14px; }
+
+/* Первый экран */
+.hero { padding-block: clamp(40px, 8vw, 88px) clamp(56px, 9vw, 96px); }
+.hero .wrap { display: grid; gap: 28px; }
+.hero h1 em { font-style: normal; color: var(--lime); }
+.hero .lead { font-size: clamp(17px, 2vw, 20px); max-width: 640px; color: var(--muted); }
+.channels { display: flex; flex-wrap: wrap; gap: 10px; }
+.channels span {
+  padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-strong); font-size: 14px; color: var(--muted);
+}
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+.fact { background: var(--panel-soft); border: 1px solid var(--line); border-radius: var(--r-md); padding: 20px; display: grid; gap: 4px; }
+.fact b { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+.fact span { color: var(--muted); font-size: 15px; line-height: 1.45; }
+
+/* Бесплатный разбор */
+.offer {
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: var(--r-lg);
+  padding: clamp(24px, 4vw, 44px); display: grid; gap: 28px; grid-template-columns: 1.1fr 1fr; align-items: center;
+}
+.offer > * { min-width: 0; }
+.offer .tag { display: inline-block; background: var(--pink); color: var(--on-lime); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+.offer h2 { margin-bottom: 14px; }
+.offer ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: step; }
+.offer li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.offer li::before {
+  content: counter(step); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--bg); border: 1px solid var(--line-strong); font-weight: 700; font-size: 14px; color: var(--lime);
+}
+.offer .note { font-size: 15px; color: var(--faint); margin-top: 16px; }
+@media (max-width: 820px) { .offer { grid-template-columns: 1fr; } }
+
+/* Услуги */
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.service { padding: 26px 26px 26px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+.service:nth-child(odd) { border-right: 1px solid var(--line); }
+.service:nth-child(even) { padding-left: 26px; padding-right: 0; }
+.service p { color: var(--muted); }
+@media (max-width: 720px) {
+  .services { grid-template-columns: 1fr; }
+  .service, .service:nth-child(even) { padding: 22px 0; border-right: 0; }
+}
+
+/* Кейсы */
+.cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.case { background: var(--panel-soft); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; display: grid; gap: 14px; align-content: start; }
+.case .kind { font-size: 13px; color: var(--violet); font-weight: 600; }
+.case .num { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--lime); line-height: 1; font-variant-numeric: tabular-nums; }
+.case .num small { display: block; font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--muted); margin-top: 8px; }
+.case p { font-size: 15.5px; color: var(--muted); }
+.case p b { color: var(--text); font-weight: 600; }
+
+/* Цены */
+.prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.price { border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; display: grid; gap: 12px; align-content: start; }
+.price .cost { font-family: var(--font-display); font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.price .cost small { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--muted); }
+.price ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15.5px; display: grid; gap: 6px; }
+.bundle {
+  margin-top: 16px; border-radius: var(--r-lg); padding: clamp(24px, 4vw, 40px);
+  background: linear-gradient(135deg, rgba(200,255,77,.12), rgba(154,144,255,.12)), var(--panel);
+  border: 1px solid var(--line-strong); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+}
+.bundle > * { min-width: 0; }
+.bundle .cost { font-family: var(--font-display); font-size: clamp(30px, 4vw, 40px); font-weight: 700; color: var(--lime); white-space: nowrap; }
+.bundle .cost s { display: block; font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--faint); }
+.bundle ul { margin: 14px 0 0; padding-left: 18px; color: var(--muted); display: grid; gap: 4px; font-size: 15.5px; }
+@media (max-width: 720px) { .bundle { grid-template-columns: 1fr; } }
+.fineprint { color: var(--faint); font-size: 14.5px; margin-top: 18px; max-width: 760px; }
+
+/* Шаги */
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
+.step { counter-increment: s; display: grid; gap: 8px; align-content: start; padding-top: 16px; border-top: 2px solid var(--line-strong); }
+.step::before { content: "Шаг " counter(s); font-size: 13px; font-weight: 700; color: var(--lime); letter-spacing: .06em; text-transform: uppercase; }
+.step p { color: var(--muted); font-size: 15px; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* Контакт */
+.contact { text-align: left; }
+.contact .box {
+  border-radius: var(--r-lg); padding: clamp(28px, 5vw, 56px); background: var(--lime); color: var(--on-lime);
+  display: grid; gap: 18px;
+}
+.contact .box p { max-width: 560px; font-size: 18px; }
+.contact .btn-dark { background: var(--on-lime); color: var(--lime); border-color: var(--on-lime); justify-self: start; }
+
+footer { padding-block: 32px 40px; color: var(--faint); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i> Idia Team</a>
+    <nav aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#prices">Цены</a>
+    </nav>
+    <a class="btn btn-lime" href="https://t.me/AnastasiaIdi" target="_blank" rel="noopener">Написать</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Реклама · Боты · Сайты</span>
+      <h1>Настраиваем рекламу, которая приносит <em>заявки</em>, а не просто клики</h1>
+      <p class="lead">Ведём проект от диагностики до цифр в отчёте: собираем стратегию, запускаем кампании и оптимизируем по данным. Работаем с разными нишами и быстро разбираемся в новом продукте.</p>
+      <div class="channels" aria-label="Каналы">
+        <span>Яндекс Директ</span><span>VK Реклама</span><span>Чат-боты и ИИ</span><span>Сайты на Тильде</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-lime" href="https://t.me/AnastasiaIdi" target="_blank" rel="noopener">Получить бесплатный разбор</a>
+        <a class="btn btn-ghost" href="#cases">Посмотреть кейсы</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>1–2 недели</b><span>до запуска первых кампаний</span></div>
+        <div class="fact"><b>5–7 дней</b><span>и чат-бот для заявок готов</span></div>
+        <div class="fact"><b>3–4 недели</b><span>реклама, сайт и бот под ключ</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="audit">
+    <div class="wrap">
+      <div class="offer">
+        <div>
+          <span class="tag">Бесплатно</span>
+          <h2>Экспресс-разбор вашей рекламы или сайта</h2>
+          <p class="muted">Посмотрим и вернёмся с тремя точками роста: что сейчас теряет заявки и что исправить в первую очередь.</p>
+        </div>
+        <div>
+          <ol>
+            <li>Пишете нам в Telegram</li>
+            <li>Присылаете ссылку на сайт, группу или рекламный кабинет</li>
+            <li>Получаете 3 точки роста и план, с чего начать</li>
+          </ol>
+          <p class="note">Нужно глубже? Полная диагностика с отчётом — 7 000 ₽.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Чем помогаем</span>
+        <h2>Реклама, боты и сайты — всё, чтобы шли заявки</h2>
+        <p class="muted">Можно взять одну услугу или собрать всё в один проект.</p>
+      </div>
+      <div class="services">
+        <div class="service"><h3>Настройка и ведение рекламы</h3><p>Яндекс Директ и VK Реклама: запуск с нуля, связки, оптимизация по цене заявки, а не по кликам.</p></div>
+        <div class="service"><h3>Аудит рекламы и аналитики</h3><p>Находим, где сливается бюджет, проверяем Метрику и цели, даём план, что исправить в первую очередь.</p></div>
+        <div class="service"><h3>Боты и ИИ-ассистенты</h3><p>Принимают заявки и отвечают клиентам в Telegram и VK, пока вы заняты. Заявки падают в CRM или таблицу.</p></div>
+        <div class="service"><h3>Сайт на Тильде под рекламу</h3><p>Лендинг, собранный под вашу рекламу, который приводит к заявке, а не просто красиво выглядит.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Кейсы</span>
+        <h2>Что уже получалось</h2>
+      </div>
+      <div class="cases">
+        <article class="case">
+          <span class="kind">Воронка заявок · чат-бот</span>
+          <div class="num">450 ₽<small>цена заявки вместо 3 000 ₽, −85%</small></div>
+          <p><b>Задача:</b> заявка из рекламы обходилась в 3 000 ₽, слишком дорого для масштабирования.</p>
+          <p><b>Сделали:</b> чат-бота под конкретную аудиторию. Вместо общей формы человек попадает в диалог, где вопросы и предложение подстраиваются под его ситуацию.</p>
+        </article>
+        <article class="case">
+          <span class="kind">Таргетная реклама · аудит</span>
+          <div class="num">×3<small>рост количества заявок</small></div>
+          <p><b>Задача:</b> реклама шла, но заявок было мало, и было непонятно, где они теряются.</p>
+          <p><b>Сделали:</b> аудит аудиторий, объявлений и настроек кампаний, нашли слабые места и исправили их.</p>
+        </article>
+        <article class="case">
+          <span class="kind">Онлайн-образование · акции и города</span>
+          <div class="num">15 мин<small>на новую страницу вместо 1–2 дней</small></div>
+          <p><b>Задача:</b> под каждую акцию и город нужен отдельный лендинг, а одна страница занимала 1–2 дня.</p>
+          <p><b>Сделали:</b> собственный агрегатор лендингов: шаблоны блоков, быстрая сборка и автоопределение города посетителя.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Пакеты и цены</span>
+        <h2>Без «стоимость по запросу»</h2>
+      </div>
+      <div class="prices">
+        <div class="price"><h3>Полная диагностика</h3><div class="cost">7 000 ₽</div>
+          <ul><li>Разбор рекламы, сайта и аналитики</li><li>Точки роста и слабые места</li><li>Отчёт с рекомендациями за 3 дня</li></ul></div>
+        <div class="price"><h3>Запуск рекламы</h3><div class="cost">от 15 000 ₽</div>
+          <ul><li>15 000 ₽: одна площадка, одна кампания</li><li>от 25 000 ₽: несколько кампаний, связки и аудитории</li><li>Готовые кампании за 1–2 недели</li></ul></div>
+        <div class="price"><h3>Сопровождение</h3><div class="cost">от 25 000 ₽ <small>/ мес</small></div>
+          <ul><li>Ведение и оптимизация кампаний</li><li>Тестирование гипотез</li><li>Ежемесячный отчёт по цифрам</li></ul></div>
+        <div class="price"><h3>Сайт на Тильде</h3><div class="cost">30 000 ₽</div>
+          <ul><li>До 7 блоков, адаптив под мобильные</li><li>Форма заявки и базовая аналитика</li><li>1 круг правок</li></ul></div>
+        <div class="price"><h3>Чат-бот для заявок</h3><div class="cost">25 000 ₽</div>
+          <ul><li>Квиз, запись, сбор заявок</li><li>Telegram или VK</li><li>Запуск за 5–7 дней</li></ul></div>
+        <div class="price"><h3>ИИ-ассистент</h3><div class="cost">45 000 ₽</div>
+          <ul><li>Отвечает по вашему прайсу и FAQ</li><li>Сложные вопросы передаёт вам</li><li>2 недели донастройки</li></ul></div>
+      </div>
+      <div class="bundle">
+        <div>
+          <span class="eyebrow">Система заявок под ключ</span>
+          <ul>
+            <li>Реклама на одной площадке: несколько кампаний и связки</li>
+            <li>Лендинг на Тильде до 7 блоков</li>
+            <li>Чат-бот для заявок в Telegram или VK</li>
+            <li>Цели в Метрике: видно, что приносит заявки</li>
+          </ul>
+        </div>
+        <div class="cost">70 000 ₽<s>80 000 ₽ по отдельности</s></div>
+      </div>
+      <p class="fineprint">Срок пакета 3–4 недели. Доп. блок на сайте — 3 000 ₽, доп. круг правок — 2 500 ₽. Работа нейросети для ИИ-ассистента оплачивается сервису отдельно, обычно от 1 000 ₽ в месяц.</p>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Как работаем</span>
+        <h2>Пять шагов от брифа до отчёта</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Бриф</h3><p>Цели, бюджет и что уже пробовали.</p></div>
+        <div class="step"><h3>Анализ</h3><p>Продукт, конкуренты и текущая реклама.</p></div>
+        <div class="step"><h3>Настройка</h3><p>План действий или сразу запуск кампаний.</p></div>
+        <div class="step"><h3>Ведение</h3><p>Оптимизируем по цифрам, тестируем гипотезы.</p></div>
+        <div class="step"><h3>Отчёт</h3><p>Результат в понятных цифрах.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="box">
+        <h2>Начнём с бесплатного разбора</h2>
+        <p>Напишите в Telegram и пришлите ссылку на сайт или рекламу. Обычно отвечаем в течение дня.</p>
+        <a class="btn btn-dark" href="https://t.me/AnastasiaIdi" target="_blank" rel="noopener">Написать в Telegram · @AnastasiaIdi</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Idia Team</span>
+    <span>Информация на странице не является публичной офертой (ст. 437 ГК РФ).</span>
+  </div>
+</footer>
+</body>
+</html>
